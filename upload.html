@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contribute</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">archive_01</div>
+
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="notes.html">archives</a>
+      <a href="upload.html">contribute</a>
+    </div>
+  </nav>
+
+  <section class="upload-section">
+
+    <p class="small-tag">
+      contribution portal
+    </p>
+
+    <h1>leave something behind.</h1>
+
+    <div class="upload-box">
+
+      <p>
+        drag files into the archive
+      </p>
+
+      <button
+     type="button"
+     id="selectFileBtn"
+      >
+  select file
+  </button>
+
+<input
+  type="file"
+  id="fileInput"
+  hidden
+>
+
+    </div>
+
+<form class="upload-form">
+
+  <input
+    type="text"
+    placeholder="title"
+    id="title"
+  >
+
+  <input
+    type="text"
+    placeholder="subject"
+    id="subject"
+  >
+
+  <input
+    type="text"
+    placeholder="semester"
+    id="semester"
+  >
+
+  <textarea
+    placeholder="description"
+    id="description"
+  ></textarea>
+
+  <button
+    type="button"
+    class="btn"
+    id="uploadBtn"
+  >
+    contribute
+  </button>
+
+</form>
+
+  </section>
+<script type="module" src="js/upload.js"></script>
+</body>
+</html>

@@ -8,6 +8,56 @@ import {
 const notesGrid =
 document.querySelector(".notes-grid");
 
+const searchInput =
+document.getElementById("searchInput");
+
+let allNotes = [];
+
+/* render notes */
+
+function renderNotes(notes) {
+
+  notesGrid.innerHTML = "";
+
+  notes.forEach((note) => {
+
+    const card =
+    document.createElement("div");
+
+    card.classList.add("note-card");
+
+    card.innerHTML = `
+
+      <div class="note-top">
+        <span class="note-type">pdf</span>
+        <span class="copies">archive</span>
+      </div>
+
+      <h3>${note.title}</h3>
+
+      <p>
+        ${note.subject} • semester ${note.semester}
+      </p>
+
+      <a
+        href="${note.fileURL}"
+        target="_blank"
+        class="btn"
+        style="display:inline-block; margin-top:20px;"
+      >
+        open
+      </a>
+
+    `;
+
+    notesGrid.appendChild(card);
+
+  });
+
+}
+
+/* load notes */
+
 async function loadNotes() {
 
   try {
@@ -15,41 +65,15 @@ async function loadNotes() {
     const querySnapshot =
     await getDocs(collection(db, "notes"));
 
-    notesGrid.innerHTML = "";
+    allNotes = [];
 
     querySnapshot.forEach((doc) => {
 
-      const note = doc.data();
-
-      const card = document.createElement("div");
-
-      card.classList.add("note-card");
-
-      card.innerHTML = `
-      
-        <div class="note-top">
-          <span class="note-type">pdf</span>
-          <span class="copies">archive</span>
-        </div>
-
-        <h3>${note.title}</h3>
-
-        <p>${note.subject} • semester ${note.semester}</p>
-
-        <a
-          href="${note.fileURL}"
-          target="_blank"
-          class="btn"
-          style="display:inline-block; margin-top:20px;"
-        >
-          open
-        </a>
-
-      `;
-
-      notesGrid.appendChild(card);
+      allNotes.push(doc.data());
 
     });
+
+    renderNotes(allNotes);
 
   } catch (error) {
 
@@ -58,5 +82,41 @@ async function loadNotes() {
   }
 
 }
+
+/* search */
+
+searchInput.addEventListener("input", () => {
+
+  const searchValue =
+  searchInput.value.toLowerCase();
+
+  const filteredNotes =
+  allNotes.filter((note) => {
+
+    return (
+
+      note.title
+      .toLowerCase()
+      .includes(searchValue)
+
+      ||
+
+      note.subject
+      .toLowerCase()
+      .includes(searchValue)
+
+      ||
+
+      note.semester
+      .toString()
+      .includes(searchValue)
+
+    );
+
+  });
+
+  renderNotes(filteredNotes);
+
+});
 
 loadNotes();

@@ -13,6 +13,20 @@ document.getElementById("selectFileBtn");
 const fileInput =
 document.getElementById("fileInput");
 
+const fileName =
+document.getElementById("fileName");
+
+fileInput.addEventListener("change", () => {
+
+  if (fileInput.files.length > 0) {
+
+    fileName.textContent =
+    fileInput.files[0].name;
+
+  }
+
+});
+
 selectFileBtn.addEventListener("click", () => {
 
   fileInput.click();
@@ -88,6 +102,18 @@ uploadBtn.addEventListener("click", async () => {
       createdAt: new Date()
 
     });
+    document.getElementById("title").value = "";
+
+    document.getElementById("subject").value = "";
+
+    document.getElementById("semester").value = "";
+
+    document.getElementById("description").value = "";
+
+    fileInput.value = "";
+
+    fileName.textContent =
+    "no file selected";
 
     alert("uploaded successfully");
 

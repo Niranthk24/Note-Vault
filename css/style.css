@@ -407,6 +407,7 @@ body::before{
     align-items:flex-start;
     gap:10px;
   }
+}
 
   #fileName{
   margin-top:50px;
@@ -416,4 +417,144 @@ body::before{
   font-size:0.9rem;
 }
 
+.auth-page{
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:40px;
+
 }
+
+.auth-box{
+
+  width:100%;
+
+  max-width:420px;
+
+  background:rgba(15,23,42,0.75);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  padding:40px;
+
+  border-radius:24px;
+
+  backdrop-filter:blur(10px);
+
+}
+
+.auth-box h1{
+
+  font-size:3rem;
+
+  margin-bottom:30px;
+
+}
+
+.auth-box input{
+
+  width:100%;
+
+  margin-bottom:16px;
+
+}
+
+.auth-switch{
+
+  margin-top:20px;
+
+  color:#94a3b8;
+
+}
+
+.auth-switch a{
+
+  color:#fb7185;
+
+}
+
+.auth-page{
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:40px;
+
+}
+
+.auth-box{
+
+  width:100%;
+
+  max-width:420px;
+
+  background:#081127;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  padding:40px;
+
+  border-radius:24px;
+
+}
+
+.auth-box h1{
+
+  font-size:4rem;
+
+  margin-bottom:30px;
+
+}
+
+.auth-box input{
+
+  width:100%;
+
+  padding:16px;
+
+  margin-bottom:16px;
+
+  background:#0f172a;
+
+  border:1px solid #1e293b;
+
+  color:white;
+
+  border-radius:12px;
+
+}
+
+.auth-box .btn{
+
+  width:100%;
+
+  margin-top:10px;
+
+}
+
+.auth-switch{
+
+  margin-top:20px;
+
+  color:#94a3b8;
+
+}
+
+.auth-switch a{
+
+  color:#fb7185;
+
+}
+
+

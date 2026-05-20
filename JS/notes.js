@@ -38,6 +38,10 @@ function renderNotes(notes) {
       <p>
         ${note.subject} • semester ${note.semester}
       </p>
+      <p>
+        uploaded by ${note.uploadedBy}
+      </p>
+        
 
       <a
         href="${note.fileURL}"

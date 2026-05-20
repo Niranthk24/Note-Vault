@@ -1,11 +1,13 @@
-import { db } from "./firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import { cloudinaryConfig }
 from "./config.js";
 
 import {
   collection,
-  addDoc
+  addDoc,
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 /* select file button */
@@ -94,6 +96,13 @@ uploadBtn.addEventListener("click", async () => {
     result.secure_url;
     console.log(fileURL)
     /* save metadata to firestore */
+    const currentUser = auth.currentUser;
+
+    const userDoc = await getDoc(
+      doc(db, "users", currentUser.uid)
+    );
+
+    const userData = userDoc.data();
 
     await addDoc(collection(db, "notes"), {
 
@@ -102,6 +111,7 @@ uploadBtn.addEventListener("click", async () => {
       semester,
       description,
       fileURL,
+      uploadedBy:userData.username,
       createdAt: new Date()
 
     });

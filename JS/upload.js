@@ -1,5 +1,8 @@
 import { db } from "./firebase-config.js";
 
+import { cloudinaryConfig }
+from "./config.js";
+
 import {
   collection,
   addDoc
@@ -73,11 +76,11 @@ uploadBtn.addEventListener("click", async () => {
 
     data.append(
       "upload_preset",
-      "notevault"
+      cloudinaryConfig.uploadPreset
     );
 
-    const response = await fetch(
-      "https://api.cloudinary.com/v1_1/dlc5e2yca/raw/upload",
+  const response = await fetch(
+  `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`,
       {
         method: "POST",
         body: data

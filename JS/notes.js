@@ -1,4 +1,4 @@
-import { db } from "./firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import {
   collection,
@@ -46,7 +46,7 @@ function renderNotes(notes) {
       <a
         href="${note.fileURL}"
         target="_blank"
-        class="btn"
+        class="btn openBtn"
         style="display:inline-block; margin-top:20px;"
       >
         open
@@ -56,6 +56,23 @@ function renderNotes(notes) {
 
     notesGrid.appendChild(card);
 
+    const openBtn =
+    card.querySelector(".openBtn");
+
+    openBtn.addEventListener("click", (e) => {
+
+  if (!auth.currentUser) {
+
+    e.preventDefault();
+
+    alert("login required");
+
+    window.location.href =
+    "login.html";
+
+  }
+
+});
   });
 
 }

@@ -4,6 +4,26 @@ import { cloudinaryConfig }
 from "./config.js";
 
 import {
+
+  onAuthStateChanged
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+  if (!user) {
+    
+    alert("login required");
+    window.location.href =
+    "login.html";
+
+  }
+
+});
+
+import {
   collection,
   addDoc,
   doc,

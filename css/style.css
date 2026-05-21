@@ -557,4 +557,103 @@ body::before{
 
 }
 
+.profile-page{
 
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:40px;
+
+}
+
+.profile-card{
+
+  width:100%;
+
+  max-width:900px;
+
+  background:#081127;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:28px;
+
+  padding:50px;
+
+}
+
+.profile-top{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:25px;
+
+  margin-bottom:50px;
+
+}
+
+.profile-pfp{
+
+  width:90px;
+
+  height:90px;
+
+  border-radius:50%;
+
+  background:#fb7185;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  font-size:2rem;
+
+  font-weight:700;
+
+}
+
+.profile-info{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+
+}
+
+.profile-box{
+
+  background:#0f172a;
+
+  border-radius:20px;
+
+  padding:30px;
+
+}
+
+.profile-box p{
+
+  color:#94a3b8;
+
+  margin-bottom:10px;
+
+}
+
+.profile-box h3{
+
+  font-size:1.3rem;
+
+  word-break:break-word;
+
+}
